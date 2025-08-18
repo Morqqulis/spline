@@ -2,7 +2,9 @@ import { Bg } from '@/shared/ui/custom/bg'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
+
 import { Header } from '@/components/header/header'
+import { AosProvider } from '@/providers/aos-provider'
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -28,10 +30,12 @@ export default function RootLayout({
 		<html lang='en'>
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} relative tracking-wide flex flex-col antialiased overflow-x-clip`}>
-				<Header />
-				<main className={`flex-1`}>{children}</main>
+				<AosProvider>
+					<Header />
+					<main className={`flex-1`}>{children}</main>
 
-				<Bg />
+					<Bg />
+				</AosProvider>
 			</body>
 		</html>
 	)

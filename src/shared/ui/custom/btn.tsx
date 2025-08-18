@@ -6,7 +6,7 @@ interface BtnProps {
 	type: 'button' | 'submit' | 'reset'
 }
 
-export function Btn({ text, className, type }: BtnProps) {
+export function Btn({ text, className, type }: BtnProps & React.HTMLAttributes<HTMLButtonElement>) {
 	return (
 		<button
 			className={cn(
